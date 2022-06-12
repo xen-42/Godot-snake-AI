@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://AI Environment.gd" type="Script" id=1]
+[ext_resource path="res://AI.py" type="Script" id=2]
+[ext_resource path="res://SnakeGame.tscn" type="PackedScene" id=3]
+
+[node name="AI Environment" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="AI" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="SnakeGame" parent="." instance=ExtResource( 3 )]
+auto_restart = false
+allow_inputs = false
+show_display = false
+
+[connection signal="tree_exiting" from="." to="." method="_on_AI_Environment_tree_exiting"]
